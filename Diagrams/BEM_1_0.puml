@@ -1,0 +1,56 @@
+@startuml
+right header
+	<font size=24 color=black>Package: <b>BEM_1.0
+	
+	end header
+	
+	title
+	<font size=18 color=black> Веб-проект "Електронний словник української мови"
+	<font size=16 color=black>BE-модель 
+	
+	end title
+	
+	entity UserAkk
+	entity UserAkk.login
+	entity UserAkk.password
+	entity UserAkk.email
+	
+	entity User
+
+	
+	entity Request
+
+	
+	entity RequestData
+	entity RequestData.data
+	
+	entity Exeptions
+	entity Exeptions.data
+
+	
+	
+	RequestData.data -u-* RequestData
+	
+	Exeptions.data -u-* Exeptions
+	
+	
+	UserAkk.login -u-* UserAkk
+	UserAkk.password -u-* UserAkk
+	UserAkk.email -u-* UserAkk
+        
+        entity APIkey
+	
+	APIkey -u-* UserAkk
+	
+	User "0,*"-u- "1,1" UserAkk
+	Request "0,*"-- "1,1" User
+	
+	RequestData -- Request
+	Exeptions -- Request
+		
+	right footer
+	
+	НТУУ КПІ ім.І.Сікорського
+	Киів-2020 
+	end footer
+@enduml
