@@ -1,0 +1,46 @@
+@startuml
+right header
+	<font size=24 color=black>Package: <b>ERM_1.0
+end header
+	
+title
+	<font size=18 color=black> Веб-проект "Електронний словник української мови"
+	<font size=16 color=black>ER-модель 
+end title
+	
+	entity User <<ENTITY>> {
+		id:
+	}
+	
+	entity UserAkk <<ENTITY>>{
+		login:
+		parol: 
+		email:
+	}
+	
+	entity APIkey <<ENTITY>>{
+		value:
+	}
+	
+	entity Request <<ENTITY>>{
+		id:
+		data: 
+	}
+
+	entity Reply <<ENTITY>> {
+		id: 
+		data: 
+		exeption: 
+	}
+	
+	APIkey "0,*" -- "1,1" UserAkk
+ 
+	User "0,*"-u- "1,1" UserAkk
+	Request "0,*"-- "1,1" User
+	Reply "0,*" -- "1,1" User
+	
+right footer
+	НТУУ КПІ ім.І.Сікорського
+	Киів-2020 
+	end footer
+@enduml
